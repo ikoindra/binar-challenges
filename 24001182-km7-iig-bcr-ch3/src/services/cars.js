@@ -28,6 +28,12 @@ exports.updateCar = async (id, data, file) => {
     throw new NotFoundError("Car not found!");
   }
 
+  if (file?.image) {
+    data.image = await imageUpload(file.image);
+  } else {
+    data.image = existingCar.image; // Keep the existing image if no new one is uploaded
+  }
+
   // Merge existing car data with the new data
   data = {
     ...existingCar,
@@ -36,10 +42,6 @@ exports.updateCar = async (id, data, file) => {
     options: data.options !== undefined ? data.options : existingCar.options,
     specs: data.specs !== undefined ? data.specs : existingCar.specs,
   };
-
-  if (file?.image) {
-    data.image = await imageUpload(file.image);
-  }
 
   const updatedCar = carRepository.updateCar(id, data);
   if (!updatedCar) {

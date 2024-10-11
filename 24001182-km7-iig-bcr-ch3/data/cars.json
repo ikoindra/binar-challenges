@@ -826,31 +826,6 @@
         ]
     },
     {
-        "id": "1bbba587-3bb0-4b5f-b5bf-4c6ff0117139",
-        "plate": "IDN 447",
-        "manufacture": "Honda",
-        "model": "Accord",
-        "rentPerDay": 200000,
-        "capacity": 5,
-        "description": "A spacious and comfortable car ideal for family trips.",
-        "availableAt": "2024-10-12",
-        "transmission": "CVT",
-        "available": true,
-        "type": "SUV",
-        "year": 2021,
-        "options": [
-            "Bluetooth",
-            "Backup Camera",
-            "Heated Seats"
-        ],
-        "specs": [
-            "Navigation System",
-            "Rear Air Conditioning",
-            "Alloy Wheels"
-        ],
-        "image": "https://ik.imagekit.io/ikoindra/Honda_ACCORD_e_HEV_RhwbcIQbS.jpg"
-    },
-    {
         "id": "0cd4ee78-f21c-4e3a-978a-04c0a3d5b438",
         "plate": "XYZ 222",
         "manufacture": "Toyota",
@@ -873,6 +848,54 @@
             "Rear Air Conditioning",
             "Alloy Wheels"
         ],
-        "image": "https://ik.imagekit.io/ikoindra/Honda_ACCORD_e_HEV_mDdt_0sT0.jpg"
+        "image": "https://ik.imagekit.io/ikoindra/2018_Toyota_Camry__ASV70R__Ascent_sedan__2018-08-27__01_zlbejr1DH.jpg"
+    },
+    {
+        "id": "8ae28a6d-5d07-4363-a8db-61402c600307",
+        "plate": "XYZ 222",
+        "manufacture": "Toyota",
+        "model": "Camry",
+        "rentPerDay": 200000,
+        "capacity": 4,
+        "description": "A reliable and fuel-efficient car.",
+        "availableAt": "2024-10-11",
+        "transmission": "automatic",
+        "available": true,
+        "type": "sedan",
+        "year": 2020,
+        "options": [
+            "GPS",
+            "Sunroof"
+        ],
+        "specs": [
+            "Air Conditioning",
+            "Leather Seats"
+        ],
+        "image": "https://ik.imagekit.io/ikoindra/Honda_ACCORD_e_HEV_MO3N2nXGH.jpg"
+    },
+    {
+        "id": "f73f2f71-8bf0-472f-9d71-c1da4234e9a9",
+        "plate": "YHN 675",
+        "manufacture": "Honda",
+        "model": "Accord",
+        "rentPerDay": 200000,
+        "capacity": 5,
+        "description": "A spacious and comfortable car ideal for family trips.",
+        "availableAt": "2024-10-12",
+        "transmission": "CVT",
+        "available": true,
+        "type": "SUV",
+        "year": 2021,
+        "options": [
+            "Bluetooth",
+            "Backup Camera",
+            "Heated Seats"
+        ],
+        "specs": [
+            "Navigation System",
+            "Rear Air Conditioning",
+            "Alloy Wheels"
+        ],
+        "image": "https://ik.imagekit.io/ikoindra/Honda_ACCORD_e_HEV_sGE4bGKQu.jpg"
     }
 ]

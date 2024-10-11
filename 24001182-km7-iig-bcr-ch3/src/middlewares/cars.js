@@ -18,8 +18,8 @@ exports.validateGetCars = (req, res, next) => {
   };
 
   const validateQuery = z.object({
-    capacity: z.number(),
-    available: z.boolean(),
+    capacity: z.number().optional(),
+    available: z.boolean().optional(),
   });
 
   const resultValidateQuery = validateQuery.safeParse(req.query);
@@ -118,30 +118,38 @@ exports.validateUpdateCar = (req, res, next) => {
 
   req.body = {
     ...req.body,
-    rentPerDay: Number(req.body.rentPerDay), // Convert to number
-    capacity: Number(req.body.capacity), // Convert to number
-    year: Number(req.body.year), // Convert to number
-    available: req.body.available == "true" ? true : false, // Convert to boolean
+    rentPerDay: req.body.rentPerDay ? Number(req.body.rentPerDay) : undefined, // Only convert if present
+    capacity: req.body.capacity ? Number(req.body.capacity) : undefined,
+    year: req.body.year ? Number(req.body.year) : undefined,
+    available:
+      req.body.available === "true"
+        ? true
+        : req.body.available === "false"
+        ? false
+        : undefined,
     options: req.body.options
       ? splitStringToArray(req.body.options)
-      : undefined, // Convert string to array
-    specs: req.body.specs ? splitStringToArray(req.body.specs) : undefined, // Convert string to array
+      : undefined,
+    specs: req.body.specs ? splitStringToArray(req.body.specs) : undefined,
   };
 
   const validateBody = z.object({
-    plate: z.string(),
-    manufacture: z.string(),
-    model: z.string(),
-    rentPerDay: z.number().positive(),
-    capacity: z.number().positive(),
-    description: z.string(),
-    availableAt: z.string().refine((date) => !isNaN(Date.parse(date)), {
-      message: "Invalid date format",
-    }),
-    transmission: z.string(),
-    available: z.boolean(),
-    type: z.string(),
-    year: z.number().positive(),
+    plate: z.string().optional(),
+    manufacture: z.string().optional(),
+    model: z.string().optional(),
+    rentPerDay: z.number().positive().optional(),
+    capacity: z.number().positive().optional(),
+    description: z.string().optional(),
+    availableAt: z
+      .string()
+      .optional()
+      .refine((date) => date === undefined || !isNaN(Date.parse(date)), {
+        message: "Invalid date format",
+      }),
+    transmission: z.string().optional(),
+    available: z.boolean().optional(),
+    type: z.string().optional(),
+    year: z.number().positive().optional(),
     options: z.array(z.string()).optional(),
     specs: z.array(z.string()).optional(),
   });
