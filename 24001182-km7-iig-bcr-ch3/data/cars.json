@@ -849,5 +849,30 @@
             "Alloy Wheels"
         ],
         "image": "https://ik.imagekit.io/ikoindra/Honda_ACCORD_e_HEV_RhwbcIQbS.jpg"
+    },
+    {
+        "id": "0cd4ee78-f21c-4e3a-978a-04c0a3d5b438",
+        "plate": "XYZ 222",
+        "manufacture": "Toyota",
+        "model": "Camry",
+        "rentPerDay": 200000,
+        "capacity": 2,
+        "description": "A reliable and fuel-efficient car.",
+        "availableAt": "2024-10-11",
+        "transmission": "automatic",
+        "available": true,
+        "type": "sedan",
+        "year": 2020,
+        "options": [
+            "Bluetooth",
+            "Backup Camera",
+            "Heated Seats"
+        ],
+        "specs": [
+            "Navigation System",
+            "Rear Air Conditioning",
+            "Alloy Wheels"
+        ],
+        "image": "https://ik.imagekit.io/ikoindra/Honda_ACCORD_e_HEV_mDdt_0sT0.jpg"
     }
 ]
