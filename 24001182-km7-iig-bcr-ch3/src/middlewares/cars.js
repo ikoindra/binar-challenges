@@ -62,8 +62,8 @@ exports.validateCreateCar = async (req, res, next) => {
     plate: z.string(),
     manufacture: z.string(),
     model: z.string(),
-    rentPerDay: z.number(),
-    capacity: z.number(),
+    rentPerDay: z.number().positive(),
+    capacity: z.number().positive(),
     description: z.string(),
     availableAt: z.string().refine((date) => !isNaN(Date.parse(date)), {
       message: "Invalid date format",
@@ -71,7 +71,7 @@ exports.validateCreateCar = async (req, res, next) => {
     transmission: z.string(),
     available: z.boolean(),
     type: z.string(),
-    year: z.number(),
+    year: z.number().positive(),
     options: z.array(z.string()).optional(),
     specs: z.array(z.string()).optional(),
   });
@@ -132,8 +132,8 @@ exports.validateUpdateCar = (req, res, next) => {
     plate: z.string(),
     manufacture: z.string(),
     model: z.string(),
-    rentPerDay: z.number(),
-    capacity: z.number(),
+    rentPerDay: z.number().positive(),
+    capacity: z.number().positive(),
     description: z.string(),
     availableAt: z.string().refine((date) => !isNaN(Date.parse(date)), {
       message: "Invalid date format",
@@ -141,7 +141,7 @@ exports.validateUpdateCar = (req, res, next) => {
     transmission: z.string(),
     available: z.boolean(),
     type: z.string(),
-    year: z.number(),
+    year: z.number().positive(),
     options: z.array(z.string()).optional(),
     specs: z.array(z.string()).optional(),
   });

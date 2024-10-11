@@ -855,7 +855,7 @@
         "plate": "XYZ 222",
         "manufacture": "Toyota",
         "model": "Camry",
-        "rentPerDay": 200000,
+        "rentPerDay": 250000,
         "capacity": 2,
         "description": "A reliable and fuel-efficient car.",
         "availableAt": "2024-10-11",
