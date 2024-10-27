@@ -6,6 +6,7 @@ const {
   validateUpdateCarsModel,
   validateDeleteCarsModel,
 } = require("../middlewares/carsModel");
+const { authorization } = require("../middlewares/auth");
 const {
   getCarsModel,
   getCarsModelById,
@@ -19,12 +20,12 @@ const router = express.Router();
 // Route is now just `/` because `/models` is handled by the parent route in index.js
 router
   .route("/")
-  .get(validateGetCarsModel, getCarsModel)
-  .post(validateCreateCarsModel, createCarsModel);
+  .get(authorization(1, 2), validateGetCarsModel, getCarsModel)
+  .post(authorization(1), validateCreateCarsModel, createCarsModel);
 
 router
   .route("/:id")
-  .get(validateGetCarsModelById, getCarsModelById)
-  .put(validateUpdateCarsModel, updateCarsModel)
-  .delete(validateDeleteCarsModel, deleteCarsModel);
+  .get(authorization(1, 2), validateGetCarsModelById, getCarsModelById)
+  .put(authorization(1), validateUpdateCarsModel, updateCarsModel)
+  .delete(authorization(1), validateDeleteCarsModel, deleteCarsModel);
 module.exports = router;

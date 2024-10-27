@@ -6,6 +6,7 @@ const {
   validateUpdateCarType,
   validateDeleteCarType,
 } = require("../middlewares/carType.js");
+const { authorization } = require("../middlewares/auth");
 const {
   getCarType,
   createCarType,
@@ -19,13 +20,13 @@ const router = express.Router();
 // It will be run the URL based on path and the method
 router
   .route("/")
-  .get(validateGetCarType, getCarType)
-  .post(validateCreateCarType, createCarType);
+  .get(authorization(1, 2), validateGetCarType, getCarType)
+  .post(authorization(1), validateCreateCarType, createCarType);
 
 router
   .route("/:id")
-  .get(validateGetCarTypeById, getCarTypeById)
-  .put(validateUpdateCarType, updateCarType)
-  .delete(validateDeleteCarType, deleteCarTypeById);
+  .get(authorization(1, 2), validateGetCarTypeById, getCarTypeById)
+  .put(authorization(1), validateUpdateCarType, updateCarType)
+  .delete(authorization(1), validateDeleteCarType, deleteCarTypeById);
 
 module.exports = router;

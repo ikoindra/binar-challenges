@@ -6,6 +6,7 @@ const {
   validateUpdateCars,
   validateDeleteCars,
 } = require("../middlewares/cars.js");
+const { authorization } = require("../middlewares/auth");
 const {
   getCars,
   createCars,
@@ -16,9 +17,9 @@ const { getCarsById } = require("../controllers/cars.js");
 
 const router = express.Router();
 
-router.get("/", validateGetCars, getCars);
-router.get("/:id", validateGetCarsById, getCarsById);
-router.post("/", validateCreateCars, createCars);
-router.put("/:id", validateUpdateCars, updateCars);
-router.delete("/:id", validateDeleteCars, deleteCarsById);
+router.get("/", authorization(1, 2), validateGetCars, getCars);
+router.get("/:id", authorization(1, 2), validateGetCarsById, getCarsById);
+router.post("/", authorization(1), validateCreateCars, createCars);
+router.put("/:id", authorization(1), validateUpdateCars, updateCars);
+router.delete("/:id", authorization(1), validateDeleteCars, deleteCarsById);
 module.exports = router;
